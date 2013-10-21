@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ProjectorModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="ProjectorModelStoreContainer">
+          <EntitySet Name="Persons" EntityType="ProjectorModel.Store.Persons" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ProjectAssignments" EntityType="ProjectorModel.Store.ProjectAssignments" store:Type="Tables" store:Schema="dbo" store:Name="ProjectAssignments">
+            <DefiningQuery>SELECT 
+      [ProjectAssignments].[person_id] AS [person_id], 
+      [ProjectAssignments].[project_id] AS [project_id]
+      FROM [dbo].[ProjectAssignments] AS [ProjectAssignments]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Projects" EntityType="ProjectorModel.Store.Projects" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_ProjectAssignments_Persons" Association="ProjectorModel.Store.FK_ProjectAssignments_Persons">
+            <End Role="Persons" EntitySet="Persons" />
+            <End Role="ProjectAssignments" EntitySet="ProjectAssignments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectAssignments_Projects" Association="ProjectorModel.Store.FK_ProjectAssignments_Projects">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="ProjectAssignments" EntitySet="ProjectAssignments" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Persons">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="last_name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="first_name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="username" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="password" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'D:\GREENOVA\GREENOVA.PROJECTOR\GREENOVA.PROJECTOR.WEBAPPLICATION\APP_DATA\PROJECTOR.MDF.dbo.ProjectAssignments' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="ProjectAssignments">
+          <Key>
+            <PropertyRef Name="person_id" />
+            <PropertyRef Name="project_id" />
+          </Key>
+          <Property Name="person_id" Type="int" Nullable="false" />
+          <Property Name="project_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Projects">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="remarks" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="budget" Type="decimal" Nullable="false" Scale="4" />
+        </EntityType>
+        <Association Name="FK_ProjectAssignments_Persons">
+          <End Role="Persons" Type="ProjectorModel.Store.Persons" Multiplicity="1" />
+          <End Role="ProjectAssignments" Type="ProjectorModel.Store.ProjectAssignments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Persons">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ProjectAssignments">
+              <PropertyRef Name="person_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectAssignments_Projects">
+          <End Role="Projects" Type="ProjectorModel.Store.Projects" Multiplicity="1" />
+          <End Role="ProjectAssignments" Type="ProjectorModel.Store.ProjectAssignments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ProjectAssignments">
+              <PropertyRef Name="project_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GreenovaModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="GreenovaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Persons" EntityType="GreenovaModel.Person" />
+          <EntitySet Name="Projects" EntityType="GreenovaModel.Project" />
+          <AssociationSet Name="ProjectAssignments" Association="GreenovaModel.ProjectAssignments">
+            <End Role="Person" EntitySet="Persons" />
+            <End Role="Project" EntitySet="Projects" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="last_name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="first_name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="username" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="password" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Projects" Relationship="GreenovaModel.ProjectAssignments" FromRole="Person" ToRole="Project" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="code" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="remarks" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="budget" Nullable="false" Precision="18" Scale="4" />
+          <NavigationProperty Name="Persons" Relationship="GreenovaModel.ProjectAssignments" FromRole="Project" ToRole="Person" />
+        </EntityType>
+        <Association Name="ProjectAssignments">
+          <End Type="GreenovaModel.Person" Role="Person" Multiplicity="*" />
+          <End Type="GreenovaModel.Project" Role="Project" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ProjectorModelStoreContainer" CdmEntityContainer="GreenovaEntities">
+          <EntitySetMapping Name="Persons">
+            <EntityTypeMapping TypeName="GreenovaModel.Person">
+              <MappingFragment StoreEntitySet="Persons">
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Projects">
+            <EntityTypeMapping TypeName="GreenovaModel.Project">
+              <MappingFragment StoreEntitySet="Projects">
+                <ScalarProperty Name="budget" ColumnName="budget" />
+                <ScalarProperty Name="remarks" ColumnName="remarks" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="ProjectAssignments" TypeName="GreenovaModel.ProjectAssignments" StoreEntitySet="ProjectAssignments">
+            <EndProperty Name="Project">
+              <ScalarProperty Name="id" ColumnName="project_id" />
+            </EndProperty>
+            <EndProperty Name="Person">
+              <ScalarProperty Name="id" ColumnName="person_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Projector">
+        <EntityTypeShape EntityType="GreenovaModel.Person" Width="1.5" PointX="0.75" PointY="0.875" Height="1.9210009765624994" />
+        <EntityTypeShape EntityType="GreenovaModel.Project" Width="1.5" PointX="3" PointY="0.875" Height="1.9210009765624996" />
+        <AssociationConnector Association="GreenovaModel.ProjectAssignments" >
+          <ConnectorPoint PointX="2.25" PointY="1.8355004882812498" />
+          <ConnectorPoint PointX="3" PointY="1.8355004882812498" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

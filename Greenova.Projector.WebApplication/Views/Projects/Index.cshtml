@@ -1,0 +1,37 @@
+﻿@model Greenova.Projector.Service.ViewModels.ProjectAssignmentsViewModel
+@{
+    ViewBag.Title = "The Projector";
+}
+
+<h2>Projector</h2>
+
+@if (Model.Projects.Count() > 0)
+{
+    <table>
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Budget</td>                
+                <td>Tasks</td>
+            </tr>            
+        </thead>
+        <tbody>
+            @foreach (var i in Model.Projects)            
+            {
+                <tr>
+                    <td>@i.Name</td>
+                    <td>@i.Budget</td>
+                    <td>@Html.ActionLink("Assignments", "Assignments", new { projectId = i.Id })</td>
+                </tr>                
+            }
+        </tbody>
+    </table>
+}
+
+else
+{
+    <p>No projects available</p>
+}
+
+@Html.ActionLink("Create Project...","Create","Projects")
+@Html.ActionLink("Create Person...","Create","Persons")

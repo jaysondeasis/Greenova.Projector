@@ -1,0 +1,38 @@
+﻿@model Greenova.Projector.Service.ViewModels.AssignProjectInputModel
+
+@{
+    ViewBag.Title = "Assignments";   
+}
+
+<h2>Project Assignments - @Model.Project.Name</h2>
+ 
+<section>
+    <label for="newMember">New Member</label>
+    @Html.DropDownListFor(m => m.Person.Id, 
+        new SelectList(Model.PersonsToAssign.Select(x => x.Name)), 
+        "select a person")
+</section>
+<section>
+    <button type="button" value="Add" id="assign" />
+</section>
+<section id="outputSection">
+<h3>Current Members</h3>
+    <table>
+    <tbody id="currentMember">
+        
+    </tbody>
+    </table>
+</section>
+<script type="text/javascript">
+    $(document).ready(function () {
+        
+    });
+   
+   var managePerson = {
+    assign: function() {
+        $('#assign').click(function (event) {
+            var projectId = '@Model.Project.Id';
+            var PersonId = $('#Person_Id')
+        });
+    }
+</script>

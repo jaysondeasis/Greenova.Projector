@@ -1,0 +1,70 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Greenova.Projector.WebApplication", "Greenova.Projector.WebApplication\Greenova.Projector.WebApplication.csproj", "{6BCF56D8-8B84-48BA-8FDC-4D81F3BEC3A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Greenova.Projector.Tests", "Greenova.Projector.Tests\Greenova.Projector.Tests.csproj", "{822BD575-9294-4545-B78F-B79BE402F67C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Greenova.Projector.Model", "Greenova.Projector.Model\Greenova.Projector.Model.csproj", "{C0572454-EEC2-4212-B393-4183BF16ECB2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 Model", "1 Model", "{8BF968A0-DB22-4838-B4C8-9510F1A5A713}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 Repository", "2 Repository", "{CD555EAE-869A-434E-8C51-A8F686F89809}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 UI", "4 UI", "{D0F03431-CD5B-470B-A71C-625D4F6A8D46}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{1BC00354-37A5-4096-B177-BA5B8F6781BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Greenova.Projector.Infrastructure", "Greenova.Projector.Infrastructure\Greenova.Projector.Infrastructure.csproj", "{DAAD3C29-2396-4BBF-A717-6804839B1E27}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 Infrasctructure", "5 Infrasctructure", "{1F077748-A84B-426B-97EF-497901336DCF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 Service", "3 Service", "{CDD0A12D-D870-4C77-ADED-2891038A07C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Greenova.Projector.Service", "Greenova.Projector.Service\Greenova.Projector.Service.csproj", "{4B6031B9-4967-41DD-8F6D-C26C8B9508AC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Greenova.Projector.EFRepository", "Greenova.Projector.EFRepository\Greenova.Projector.EFRepository.csproj", "{D30FA685-DF51-43E2-BFF0-31AC36CF2270}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6BCF56D8-8B84-48BA-8FDC-4D81F3BEC3A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BCF56D8-8B84-48BA-8FDC-4D81F3BEC3A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BCF56D8-8B84-48BA-8FDC-4D81F3BEC3A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BCF56D8-8B84-48BA-8FDC-4D81F3BEC3A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{822BD575-9294-4545-B78F-B79BE402F67C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{822BD575-9294-4545-B78F-B79BE402F67C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{822BD575-9294-4545-B78F-B79BE402F67C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{822BD575-9294-4545-B78F-B79BE402F67C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0572454-EEC2-4212-B393-4183BF16ECB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0572454-EEC2-4212-B393-4183BF16ECB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0572454-EEC2-4212-B393-4183BF16ECB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0572454-EEC2-4212-B393-4183BF16ECB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAAD3C29-2396-4BBF-A717-6804839B1E27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAAD3C29-2396-4BBF-A717-6804839B1E27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAAD3C29-2396-4BBF-A717-6804839B1E27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAAD3C29-2396-4BBF-A717-6804839B1E27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B6031B9-4967-41DD-8F6D-C26C8B9508AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B6031B9-4967-41DD-8F6D-C26C8B9508AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B6031B9-4967-41DD-8F6D-C26C8B9508AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B6031B9-4967-41DD-8F6D-C26C8B9508AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D30FA685-DF51-43E2-BFF0-31AC36CF2270}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D30FA685-DF51-43E2-BFF0-31AC36CF2270}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D30FA685-DF51-43E2-BFF0-31AC36CF2270}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D30FA685-DF51-43E2-BFF0-31AC36CF2270}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6BCF56D8-8B84-48BA-8FDC-4D81F3BEC3A4} = {D0F03431-CD5B-470B-A71C-625D4F6A8D46}
+		{822BD575-9294-4545-B78F-B79BE402F67C} = {1BC00354-37A5-4096-B177-BA5B8F6781BD}
+		{C0572454-EEC2-4212-B393-4183BF16ECB2} = {8BF968A0-DB22-4838-B4C8-9510F1A5A713}
+		{D30FA685-DF51-43E2-BFF0-31AC36CF2270} = {CD555EAE-869A-434E-8C51-A8F686F89809}
+		{DAAD3C29-2396-4BBF-A717-6804839B1E27} = {1F077748-A84B-426B-97EF-497901336DCF}
+		{4B6031B9-4967-41DD-8F6D-C26C8B9508AC} = {CDD0A12D-D870-4C77-ADED-2891038A07C1}
+	EndGlobalSection
+EndGlobal
